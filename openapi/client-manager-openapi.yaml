@@ -1,0 +1,278 @@
+_type: export
+__export_format: 4
+__export_date: 2021-07-21T02:23:19.447Z
+__export_source: insomnia.desktop.app:v2021.4.1
+resources:
+  - _id: req_wrk_f878334eef55476fadf06e5c89acb83638304e7f
+    parentId: wrk_f878334eef55476fadf06e5c89acb836
+    modified: 1626833523890
+    created: 1626833523890
+    url: "{{ base_url }}/api/v1/idp/clients"
+    name: Return a list of clients
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1626833523890
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: wrk_f878334eef55476fadf06e5c89acb836
+    parentId: null
+    modified: 1626827431691
+    created: 1626827431691
+    name: my-spec.yaml
+    description: ""
+    scope: design
+    _type: workspace
+  - _id: req_wrk_f878334eef55476fadf06e5c89acb83676e857cc
+    parentId: wrk_f878334eef55476fadf06e5c89acb836
+    modified: 1626833523889
+    created: 1626833523889
+    url: "{{ base_url }}/api/v1/idp/client/{{ clientId }}"
+    name: Search Client by Id
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1626833523889
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_wrk_f878334eef55476fadf06e5c89acb8367765e85d
+    parentId: wrk_f878334eef55476fadf06e5c89acb836
+    modified: 1626833523888
+    created: 1626833523888
+    url: "{{ base_url }}/api/v1/idp/client/{{ clientId }}"
+    name: Update Client by Id
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1626833523888
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_wrk_f878334eef55476fadf06e5c89acb8363c1126fd
+    parentId: wrk_f878334eef55476fadf06e5c89acb836
+    modified: 1626833523888
+    created: 1626833523888
+    url: "{{ base_url }}/api/v1/idp/client/{{ clientId }}"
+    name: Update Client by Id
+    description: ""
+    method: PUT
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1626833523888
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_wrk_f878334eef55476fadf06e5c89acb836d3e75af1
+    parentId: wrk_f878334eef55476fadf06e5c89acb836
+    modified: 1626833523886
+    created: 1626833523886
+    url: "{{ base_url }}/api/v1/idp/client"
+    name: Create a client
+    description: ""
+    method: POST
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1626833523886
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_d9fc74481238d9e467e293d0553b1f217fc12fd9
+    parentId: wrk_f878334eef55476fadf06e5c89acb836
+    modified: 1626827431834
+    created: 1626827431834
+    name: Base Environment
+    data:
+      base_url: "{{ scheme }}://{{ host }}{{ base_path }}"
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1626827431834
+    _type: environment
+  - _id: jar_d9fc74481238d9e467e293d0553b1f217fc12fd9
+    parentId: wrk_f878334eef55476fadf06e5c89acb836
+    modified: 1626827431835
+    created: 1626827431835
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_7cd4b783c8504551a2a0929c2f3fd51b
+    parentId: wrk_f878334eef55476fadf06e5c89acb836
+    modified: 1626834113328
+    created: 1626827431694
+    fileName: my-spec.yaml
+    contents: |-
+      openapi: 3.0.3
+      info:
+        title: Client Manager
+        version: 1.0.0
+        description: APIs to manage client to access IDP Provider
+
+      servers:
+        - url: http://localhost:8080/api/v1/idp
+          description: Production Server
+        - url: http://localhost:8081/api/v1/idp
+          description: UAT Server
+
+      basepath: 
+            
+      paths:
+        /clients:
+          get:
+            tags:
+              - clients
+            summary: Return a list of clients
+            descripton: Return all clients from IDP Provider
+            responses:
+              '200':
+                description: A JSON array of clients
+                content:  
+                  application/json:
+                    schema:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/Client'
+              '401':
+                description: Unauthorized
+                content:
+                  application/json:
+                    schema:
+                      type: object
+                      items: 
+                        type: string
+                        
+        /client:
+         post:
+           tags:
+             - clients
+           summary: Create a client
+           descripton: Return a specific client
+           responses:
+             '201':
+               description: A JSON array of clients
+               content:  
+                 application/json:
+                   schema:
+                    $ref: '#/components/schemas/Client'
+             '409':
+                description: Client already exists
+                        
+        /client/{clientId}:
+            get:
+              tags:
+                - clients
+              summary: Search Client by Id
+              descripton: Return a specific client
+              responses:
+                '200':
+                  description: A JSON array of clients
+                  content:  
+                    application/json:
+                      schema:
+                        $ref: '#/components/schemas/Client'
+            
+            put:
+              tags:
+                - clients
+              summary: Update Client by Id
+              descripton: Return a specific client
+              responses:
+                '200':
+                  description: A JSON array of clients
+                  content:  
+                    application/json:
+                      schema:
+                        $ref: '#/components/schemas/Client'
+            
+            delete:
+              tags:
+                - clients
+              summary: Update Client by Id
+              descripton: Return a specific client
+              responses:
+                '200':
+                  description: A JSON array of clients
+                  content:  
+                    application/json:
+                      schema:
+                        $ref: '#/components/schemas/Client'
+                                  
+      components:
+        schemas:
+          Client:
+            x-swagger-router-model: io.swagger.petstore.model.User
+            properties:
+              id:
+                type: integer
+                format: int64
+                example: 10
+              username:
+                type: string
+                example: agLAl0hgqNKwp9APtAW6
+              description:
+                type: string
+                example: User responsible to create bulk crm tasks
+              owner:
+                type: string
+                example: mateuslima90@gmail.com
+              team:
+                type: string
+                example: APi Automation Team
+            xml:
+              name: user
+            type: object
+    contentType: yaml
+    _type: api_spec
+  - _id: env_env_d9fc74481238d9e467e293d0553b1f217fc12fd9_sub
+    parentId: env_d9fc74481238d9e467e293d0553b1f217fc12fd9
+    modified: 1626833523891
+    created: 1626833523891
+    name: OpenAPI env
+    data:
+      scheme: http
+      base_path: ""
+      host: localhost:8080
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1626833523891
+    _type: environment
