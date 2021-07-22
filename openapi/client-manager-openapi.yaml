@@ -9,8 +9,10 @@ servers:
     description: Production Server
   - url: http://localhost:8081/api/v1/idp
     description: UAT Server
-
-basepath: 
+  - url: http://localhost:8082/api/v1/idp
+    description: TST Server
+  - url: http://localhost:8083/api/v1/idp
+    description: DEV Server
       
 paths:
   /clients:
@@ -28,15 +30,25 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Client'
+        '400':
+          description: Not Found
+          content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ApiResponse'
         '401':
           description: Unauthorized
           content:
-            application/json:
-              schema:
-                type: object
-                items: 
-                  type: string
-                  
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ApiResponse'
+        '500':
+          description: Internal Server Error
+          content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ApiResponse'
+           
   /client:
    post:
      tags:
@@ -50,9 +62,25 @@ paths:
            application/json:
              schema:
               $ref: '#/components/schemas/Client'
+       '400':
+         description: Invalid Payload
+         content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ApiResponse'
        '409':
-          description: Client already exists
-                  
+         description: Client already exists
+         content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ApiResponse'
+       '500':
+         description: Internal Server Error
+         content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ApiResponse'
+       
   /client/{clientId}:
       get:
         tags:
@@ -66,12 +94,24 @@ paths:
               application/json:
                 schema:
                   $ref: '#/components/schemas/Client'
-      
+          '404':
+            description: Not Found
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ApiResponse'
+          '500':
+            description: Internal Server Error          
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ApiResponse'
+        
       put:
         tags:
           - clients
         summary: Update Client by Id
-        descripton: Return a specific client
+        descripton: Update a specific client
         responses:
           '200':
             description: A JSON array of clients
@@ -79,12 +119,36 @@ paths:
               application/json:
                 schema:
                   $ref: '#/components/schemas/Client'
+          '400':
+            description: Invalid Payload
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ApiResponse'
+          '404':
+            description: Not Found
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ApiResponse'
+          '409':
+            description: Client already exists
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ApiResponse'
+          '500':
+            description: Internal Server Error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ApiResponse'
       
       delete:
         tags:
           - clients
-        summary: Update Client by Id
-        descripton: Return a specific client
+        summary: Delete Client by Id
+        descripton: Delete a specific client
         responses:
           '200':
             description: A JSON array of clients
@@ -92,6 +156,18 @@ paths:
               application/json:
                 schema:
                   $ref: '#/components/schemas/Client'
+          '404':
+            description: Not Found
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ApiResponse'
+          '500':
+            description: Internal Server Error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ApiResponse'
                             
 components:
   schemas:
@@ -117,3 +193,16 @@ components:
       xml:
         name: user
       type: object
+    ApiResponse:
+     x-swagger-router-model: io.swagger.petstore.model.ApiResponse
+     properties:
+        code:
+          type: integer
+          format: int64
+          example: 404
+        msg:
+          type: string
+          example: agLAl0hgqNKwp9APtAW6
+     xml:
+       name: ApiResponse
+     type: object
