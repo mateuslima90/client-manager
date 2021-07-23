@@ -4,6 +4,10 @@ info:
   version: 1.0.0
   description: APIs to manage client to access IDP Provider
 
+contact:
+    name: Mateus Lima Fonseca
+    email: mateuslima90@gmail.com
+
 servers:
   - url: http://localhost:8080/api/v1/idp
     description: Production Server
@@ -21,6 +25,9 @@ paths:
         - clients
       summary: Return a list of clients
       descripton: Return all clients from IDP Provider
+      operationId: getAllClient
+      security:
+        - BearerAuth: []
       responses:
         '200':
           description: A JSON array of clients
@@ -55,6 +62,31 @@ paths:
        - clients
      summary: Create a client
      descripton: Return a specific client
+     operationId: createSingleClient
+     security:
+       - BearerAuth: []
+     requestBody:
+       required: true
+       content:
+         application/json:
+           schema:
+             type: object
+             properties:
+                id:
+                  type: string
+                  example: ae1271te127ts178t27e1
+                username:
+                  type: string
+                  example: integration-notification-api
+                description:
+                  type: string
+                  example: Integration Notification API
+                owner:
+                  type: string
+                  example: mateuslima90@gmail.com
+                team:
+                  type: string
+                  example: APi Automation Team
      responses:
        '201':
          description: A JSON array of clients
@@ -87,6 +119,9 @@ paths:
           - clients
         summary: Search Client by Id
         descripton: Return a specific client
+        operationId: getSingleClient
+        security:
+          - BearerAuth: []
         responses:
           '200':
             description: A JSON array of clients
@@ -112,6 +147,28 @@ paths:
           - clients
         summary: Update Client by Id
         descripton: Update a specific client
+        operationId: updateSingleClient
+        security:
+          - BearerAuth: []
+        requestBody:
+          required: true
+          content:
+           application/json:
+             schema:
+               type: object
+               properties:
+                username:
+                  type: string
+                  example: integration-notification-api
+                description:
+                  type: string
+                  example: Integration Notification API
+                owner:
+                  type: string
+                  example: mateuslima90@gmail.com
+                team:
+                  type: string
+                  example: APi Automation Team
         responses:
           '200':
             description: A JSON array of clients
@@ -149,6 +206,9 @@ paths:
           - clients
         summary: Delete Client by Id
         descripton: Delete a specific client
+        operationId: deleteSingleClient
+        security:
+          - BearerAuth: []
         responses:
           '200':
             description: A JSON array of clients
@@ -167,17 +227,21 @@ paths:
             content:
               application/json:
                 schema:
-                  $ref: '#/components/schemas/ApiResponse'
-                            
+                  $ref: '#/components/schemas/ApiResponse'        
+      
 components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
   schemas:
     Client:
       x-swagger-router-model: io.swagger.petstore.model.User
       properties:
         id:
-          type: integer
-          format: int64
-          example: 10
+          type: string
+          example: 121dasda212e12dsawd3
         username:
           type: string
           example: agLAl0hgqNKwp9APtAW6
