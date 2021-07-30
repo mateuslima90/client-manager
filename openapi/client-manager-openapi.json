@@ -33,7 +33,7 @@
 					"clients"
 				],
 				"summary": "Return a list of clients",
-				"descripton": "Return all clients from IDP Provider",
+				"description": "Return all clients from IDP Provider",
 				"operationId": "getAllClient",
 				"security": [{
 					"BearerAuth": []
@@ -91,7 +91,7 @@
 					"clients"
 				],
 				"summary": "Create a client",
-				"descripton": "Return a specific client",
+				"description": "Return a specific client",
 				"operationId": "createSingleClient",
 				"security": [{
 					"BearerAuth": []
@@ -178,7 +178,7 @@
 					"clients"
 				],
 				"summary": "Search Client by Id",
-				"descripton": "Return a specific client",
+				"description": "Return a specific client",
 				"operationId": "getSingleClient",
 				"security": [{
 					"BearerAuth": []
@@ -221,7 +221,7 @@
 					"clients"
 				],
 				"summary": "Update Client by Id",
-				"descripton": "Update a specific client",
+				"description": "Update a specific client",
 				"operationId": "updateSingleClient",
 				"security": [{
 					"BearerAuth": []
@@ -312,7 +312,7 @@
 					"clients"
 				],
 				"summary": "Delete Client by Id",
-				"descripton": "Delete a specific client",
+				"description": "Delete a specific client",
 				"operationId": "deleteSingleClient",
 				"security": [{
 					"BearerAuth": []
