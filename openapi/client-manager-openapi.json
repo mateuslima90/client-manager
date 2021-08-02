@@ -3,11 +3,12 @@
 	"info": {
 		"title": "Client Manager",
 		"version": "1.0.0",
-		"description": "APIs to manage client to access IDP Provider"
-	},
-	"contact": {
-		"name": "Mateus Lima Fonseca",
-		"email": "mateuslima90@gmail.com"
+		"description": "APIs to manage client to access IDP Provider",
+		"contact": {
+		   "name": "Mateus Lima Fonseca",
+		   "email": "mateuslima90@gmail.com",
+		   "url": "http://swagger.io"
+		}
 	},
 	"servers": [{
 			"url": "http://localhost:8080/api/v1/idp",
@@ -83,9 +84,7 @@
 						}
 					}
 				}
-			}
-		},
-		"/client": {
+			},
 			"post": {
 				"tags": [
 					"clients"
@@ -172,7 +171,7 @@
 				}
 			}
 		},
-		"/client/{clientId}": {
+		"/clients/{clientId}": {
 			"get": {
 				"tags": [
 					"clients"
@@ -180,6 +179,17 @@
 				"summary": "Search Client by Id",
 				"description": "Return a specific client",
 				"operationId": "getSingleClient",
+				"parameters": [
+				   {
+					"name": "clientId",
+					"in": "path",
+				        "description": "ID of client to fetch",
+		                        "required": true,
+					"schema": {
+					    "type": "string"
+					}
+				   }
+				],
 				"security": [{
 					"BearerAuth": []
 				}],
@@ -223,6 +233,17 @@
 				"summary": "Update Client by Id",
 				"description": "Update a specific client",
 				"operationId": "updateSingleClient",
+				"parameters": [
+				   {
+					"name": "clientId",
+					"in": "path",
+				        "description": "ID of client to fetch",
+		                        "required": true,
+					"schema": {
+					    "type": "string"
+					}
+				   }
+				],
 				"security": [{
 					"BearerAuth": []
 				}],
@@ -314,6 +335,17 @@
 				"summary": "Delete Client by Id",
 				"description": "Delete a specific client",
 				"operationId": "deleteSingleClient",
+				"parameters": [
+				   {
+					"name": "clientId",
+					"in": "path",
+				        "description": "ID of client to fetch",
+		                        "required": true,
+					"schema": {
+					    "type": "string"
+					}
+				   }
+				],
 				"security": [{
 					"BearerAuth": []
 				}],
