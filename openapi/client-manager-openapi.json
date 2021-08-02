@@ -84,9 +84,7 @@
 						}
 					}
 				}
-			}
-		},
-		"/clients": {
+			},
 			"post": {
 				"tags": [
 					"clients"
@@ -185,7 +183,7 @@
 				   {
 					"name": "clientId",
 					"in": "path",
-				        "description": "ID of pet to fetch",
+				        "description": "ID of client to fetch",
 		                        "required": true,
 					"schema": {
 					    "type": "string"
@@ -239,7 +237,7 @@
 				   {
 					"name": "clientId",
 					"in": "path",
-				        "description": "ID of pet to fetch",
+				        "description": "ID of client to fetch",
 		                        "required": true,
 					"schema": {
 					    "type": "string"
@@ -341,7 +339,7 @@
 				   {
 					"name": "clientId",
 					"in": "path",
-				        "description": "ID of pet to fetch",
+				        "description": "ID of client to fetch",
 		                        "required": true,
 					"schema": {
 					    "type": "string"
