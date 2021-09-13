@@ -90,7 +90,7 @@
 					"clients"
 				],
 				"summary": "Create a client",
-				"description": "Return a specific client",
+				"description": "Create a specific client",
 				"operationId": "createSingleClient",
 				"security": [{
 					"BearerAuth": []

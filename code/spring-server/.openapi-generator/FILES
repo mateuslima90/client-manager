@@ -1,0 +1,13 @@
+README.md
+src/main/gen/io/mkth/OpenAPI2SpringBoot.java
+src/main/gen/io/mkth/RFC3339DateFormat.java
+src/main/gen/io/mkth/api/ApiUtil.java
+src/main/gen/io/mkth/api/ClientsApi.java
+src/main/gen/io/mkth/api/ClientsApiController.java
+src/main/gen/io/mkth/configuration/HomeController.java
+src/main/gen/io/mkth/configuration/OpenAPIDocumentationConfig.java
+src/main/gen/io/mkth/model/Client.java
+src/main/gen/io/mkth/model/InlineObject.java
+src/main/gen/io/mkth/model/InlineObject1.java
+src/main/gen/io/mkth/model/ModelApiResponse.java
+src/main/resources/application.properties
