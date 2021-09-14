@@ -8,4 +8,4 @@ var clientSchema = new mongoose.Schema({
   team: String
 }, {timestamps: true});
 
-mongoose.model('Client', UserSchema);
+mongoose.model('Client', clientSchema);

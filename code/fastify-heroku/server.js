@@ -12,6 +12,13 @@ const app = Fastify({
   pluginTimeout: 10000
 })
 
+const mongoose = require('mongoose')
+
+//Connect to DB
+mongoose.connect('mongodb://172.17.0.2:27017/admin?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false')
+.then(() => console.log('MongoDB connected...'))
+.catch(err => console.log(err))
+
 // Register your application as a normal plugin.
 app.register(require('./app.js'))
 
