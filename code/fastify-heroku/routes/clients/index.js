@@ -2,6 +2,7 @@
 
 const addClientServiceHandler = require('../../handler/addClientServiceHandler')
 const addClientSchema = require('../../schemas/addClientSchema')
+const validateSchemaErrors = require('../../preHandler/validateSchemaErrors')
 
 module.exports = async function (fastify, opts) {
     
@@ -26,12 +27,12 @@ module.exports = async function (fastify, opts) {
     // })
     
     fastify.route({
-        //attachValidation: true,
+        attachValidation: true,
         handler: addClientServiceHandler,
         method: 'POST',
-        path: '/client',
-        //preHandler: [validateSchemaErrors],
+        path: '/clients',
+        preHandler: [validateSchemaErrors],
         schema: addClientSchema
-      });
+    });
 
 }

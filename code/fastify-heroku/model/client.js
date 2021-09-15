@@ -1,6 +1,6 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-var clientSchema = new mongoose.Schema({
+const clientSchema = new mongoose.Schema({
   id: String,
   username: String,
   description: String,
@@ -8,4 +8,4 @@ var clientSchema = new mongoose.Schema({
   team: String
 }, {timestamps: true});
 
-mongoose.model('Client', clientSchema);
+module.exports = mongoose.model('Client', clientSchema);
