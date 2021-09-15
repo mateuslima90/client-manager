@@ -1,11 +1,10 @@
 const mongoose = require('mongoose');
 
 const clientSchema = new mongoose.Schema({
-  id: String,
-  username: String,
-  description: String,
-  owner: String,
-  team: String
-}, {timestamps: true});
+  username: { type: String, required: [true, 'Username is required'], unique: true },
+  description: { type: String, required: true },
+  owner: { type:String, required: true },
+  team: { type: String, required: true }
+});
 
 module.exports = mongoose.model('Client', clientSchema);
