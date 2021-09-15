@@ -2,35 +2,41 @@
 
 const addClientServiceHandler = require('../../handler/addClientServiceHandler')
 const getClientServiceHandler = require('../../handler/getClientServiceHandler')
+const getByIdClientServiceHandler = require('../../handler/getByIdClientServiceHandler')
+const updateClientServiceHandler = require('../../handler/updateClientServiceHandler')
+const deleteClientServiceHandler = require('../../handler/deleteClientServiceHandler')
 const addClientSchema = require('../../schemas/addClientSchema')
 const validateSchemaErrors = require('../../preHandler/validateSchemaErrors')
 
+
 module.exports = async function (fastify, opts) {
-    
-    // fastify.get('/clients', async function (request, reply) {
-    //   return 'Return all clients from IDP Provider'
-    // })
-
-    // fastify.post('/client', async function (request, reply) {
-    //     return 'Create a specific client'
-    // })
-
-    // fastify.get('/clients/:clientId', async function (request, reply) {
-    //     return 'Return a specific client'
-    // })
-
-    // fastify.put('/clients/:clientId', async function (request, reply) {
-    //     return 'Update a specific client'
-    // })
-
-    // fastify.delete('/clients/:clientId', async function (request, reply) {
-    //     return 'Delete a specific client'
-    // })
     
     fastify.route({
         handler: getClientServiceHandler,
         method: 'GET',
         path: ''
+    })
+
+    fastify.route({
+        handler: getByIdClientServiceHandler,
+        method: 'GET',
+        path: '/:id'
+    })
+
+    fastify.route({
+        attachValidation: true,
+        handler: updateClientServiceHandler,
+        method: 'PUT',
+        path: '/:id',
+        preHandler: [validateSchemaErrors],
+        schema: addClientSchema
+    })
+
+    fastify.route({
+        attachValidation: false,
+        handler: deleteClientServiceHandler,
+        method: 'DELETE',
+        path: '/:id',
     })
 
     fastify.route({
