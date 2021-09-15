@@ -1,6 +1,7 @@
 'use strict'
 
 const addClientServiceHandler = require('../../handler/addClientServiceHandler')
+const getClientServiceHandler = require('../../handler/getClientServiceHandler')
 const addClientSchema = require('../../schemas/addClientSchema')
 const validateSchemaErrors = require('../../preHandler/validateSchemaErrors')
 
@@ -26,6 +27,12 @@ module.exports = async function (fastify, opts) {
     //     return 'Delete a specific client'
     // })
     
+    fastify.route({
+        handler: getClientServiceHandler,
+        method: 'GET',
+        path: ''
+    })
+
     fastify.route({
         attachValidation: true,
         handler: addClientServiceHandler,
