@@ -3,7 +3,7 @@ const boom = require('boom');
 
 async function getClientServiceHandler(request, reply) {
   try {
-    return Client.find()
+    return Client.find({}).sort({username: 'desc', team: 'desc'}).limit(5)
   } catch (err) {
     throw boom.boomify(err)
   }
