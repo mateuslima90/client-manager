@@ -6,6 +6,7 @@ const getByIdClientServiceHandler = require('../../handler/getByIdClientServiceH
 const updateClientServiceHandler = require('../../handler/updateClientServiceHandler')
 const deleteClientServiceHandler = require('../../handler/deleteClientServiceHandler')
 const addClientSchema = require('../../schemas/addClientSchema')
+const getPaginationSchema = require('../../schemas/getPaginationClientSchema')
 const validateSchemaErrors = require('../../preHandler/validateSchemaErrors')
 
 
@@ -14,7 +15,8 @@ module.exports = async function (fastify, opts) {
     fastify.route({
         handler: getClientServiceHandler,
         method: 'GET',
-        path: ''
+        path: '',
+        schema: getPaginationSchema
     })
 
     fastify.route({

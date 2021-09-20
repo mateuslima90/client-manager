@@ -1,0 +1,1 @@
+const getPaginationSchema = { querystring: {page: { type: 'integer' }, size: { type: 'integer' }}}
