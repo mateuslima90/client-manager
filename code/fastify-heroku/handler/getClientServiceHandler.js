@@ -3,18 +3,23 @@ const boom = require('boom');
 
 async function getClientServiceHandler(request, reply) {
   try {
-    validatePageAndSize(request)
-    console.log(`Page: ${request.query.page}`)
-    console.log(`Size: ${request.query.size}`)
-    return Client.find({}).sort({username: 'desc', team: 'desc'}).skip(request.query.page).limit(request.query.size)
+    return validatePageAndSize(request)
   } catch (err) {
     throw boom.boomify(err)
   }
 };
 
-function validatePageAndSize(request) {
-  if(request.params.page >= 0 && request.params.size >0){
-    return request
+async function validatePageAndSize(request) {
+  const pages = Number(request.query.page)
+  const size = Number(request.query.size)
+  const totalClients = await Client.count()
+  
+  if(pages >= 0 && size >0 && pages <= (totalClients/size)-1){
+    const clients = await Client.find({}).sort({username: 'desc', team: 'desc'}).skip(pages*size).limit(size)
+    return { content: clients, page: pages, size: size, total: totalClients, totalPages: (totalClients/size)-1}
+  }
+  else {
+    return { content: [], page: pages, size: size, total: totalClients, totalPages: (totalClients/size)-1}
   }
 }
 
