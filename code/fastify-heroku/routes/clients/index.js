@@ -20,6 +20,13 @@ module.exports = async function (fastify, opts) {
     })
 
     fastify.route({
+        handler: getClientServiceHandler,
+        method: 'GET',
+        path: '/search',
+        schema: getKeyWordClientSchema
+    })
+
+    fastify.route({
         handler: getByIdClientServiceHandler,
         method: 'GET',
         path: '/:id'

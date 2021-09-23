@@ -14,7 +14,7 @@ async function validatePageAndSize(request) {
   const size = Number(request.query.size)
   const totalClients = await Client.count()
   
-  if(pages >= 0 && size >0 && pages <= (totalClients/size)-1){
+  if(pages >= 0 && size >0 && pages <= (totalClients/size)-1) {
     const clients = await Client.find({}).sort({username: 'desc', team: 'desc'}).skip(pages*size).limit(size)
     return { content: clients, page: pages, size: size, total: totalClients, totalPages: (totalClients/size)-1}
   }
