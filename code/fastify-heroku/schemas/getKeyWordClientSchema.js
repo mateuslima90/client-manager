@@ -1,0 +1,1 @@
+const getKeyWordClientSchema = { querystring: {username: {type: 'string'}}}
