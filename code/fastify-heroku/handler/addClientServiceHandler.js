@@ -5,7 +5,7 @@ async function addClientServiceHandler(request, reply) {
   try {
     await Client.syncIndexes();
     const newClient = new Client(request.body);
-    return newClient.save()
+    return await newClient.save()
   } catch (err) {
     throw boom.boomify(err)
   }
