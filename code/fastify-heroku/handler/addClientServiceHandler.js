@@ -3,6 +3,7 @@ const boom = require('boom');
 
 async function addClientServiceHandler(request, reply) {
   try {
+    await Client.syncIndexes();
     const newClient = new Client(request.body);
     return newClient.save()
   } catch (err) {

@@ -14,6 +14,10 @@ const app = Fastify({
 
 const mongoose = require('mongoose')
 
+//mongodb-service
+//'mongodb://172.17.0.3:27017/clientsdb?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false'
+//mongodb://mongodb-service/clientsdb?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false
+
 //Connect to DB
 mongoose.connect('mongodb://172.17.0.2:27017/clientsdb?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false')
 .then(() => console.log('MongoDB connected...'))
