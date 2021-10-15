@@ -3,7 +3,6 @@ jest.mock('boom');
 const boom = require('boom');
 const Client = require('../../model/client');
 const addClientServiceHandler = require('../../handler/addClientServiceHandler');
-const { expectationFailed } = require('boom');
 
 describe('addClientServiceHandler', () => {
 

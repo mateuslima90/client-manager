@@ -10,6 +10,18 @@
     "start": "node server.js",
     "dev": "fastify start -w -l info -P app.js"
   },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "testResultsProcessor": "jest-sonar-reporter"
+  },
+  "jestSonar": {
+    "reportPath": "coverage",
+    "reportFile": "test-reporter.xml",
+    "indent": 4
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
