@@ -15,7 +15,6 @@ describe('addClientServiceHandler', () => {
         request.body.team = 'makingthehand';
 
         await addClientServiceHandler(request);
-    
         expect(Client.syncIndexes).toHaveBeenCalledTimes(1);
     });
 
@@ -28,11 +27,7 @@ describe('addClientServiceHandler', () => {
         request.body.team = 'makingthehand';
 
         Client.prototype.save = jest.fn(() => {console.log('Client was saved')});
-
-        //Client.prototype.save = jest.fn(() => { throw new Error('This is a mocker error');});
         await addClientServiceHandler(request);
-    
-        //expect(Client.syncIndexes).toHaveBeenCalledTimes(1);
         expect(Client.prototype.save).toHaveBeenCalled();
     });
 
@@ -44,8 +39,7 @@ describe('addClientServiceHandler', () => {
         request.body.owner = 'Mateus Lima Fonseca';
         request.body.team = 'makingthehand';
 
-        Client.prototype.save = jest.fn(() => { throw new Error('This is a mocker error'); });
-        
+        Client.prototype.save = jest.fn(() => { throw new Error('This is a mocker error'); });   
         addClientServiceHandler(request);
         expect(Client.prototype.save).toThrow();
     });
