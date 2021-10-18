@@ -1,5 +1,4 @@
 jest.mock('../../model/client');
-jest.mock('boom')
 const Client = require('../../model/client');
 
 const getClientServiceHandler = require('../../handler/getClientServiceHandler');
