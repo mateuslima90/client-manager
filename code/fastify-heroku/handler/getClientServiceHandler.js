@@ -3,11 +3,11 @@ const boom = require('boom');
 
 async function getClientServiceHandler(request, reply) {
   try {
-    return validatePageAndSize(request)
+    return await validatePageAndSize(request)
   } catch (err) {
     throw boom.boomify(err)
   }
-};
+}
 
 async function validatePageAndSize(request) {
   const pages = Number(request.query.page)

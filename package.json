@@ -1,29 +1,29 @@
 {
-    "name": "client-manager",
-    "version": "1.0.0",
-    "description": "",
-    "main": "app.js",
-    "directories": {
-      "test": "test"
-    },
-    "scripts": {
-      "test": "tap test/**/*.test.js",
-      "start": "node code/fastify-heroku/server.js",
-      "dev": "fastify start -w -l info -P app.js"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-      "boom": "^7.3.0",
-      "fastify": "^3.0.0",
-      "fastify-autoload": "^3.3.1",
-      "fastify-cli": "^2.7.0",
-      "fastify-plugin": "^3.0.0",
-      "mongoose": "^6.0.5"
-    },
-    "devDependencies": {
-      "tap": "^14.11.0"
-    }
+  "name": "client-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "tap test/**/*.test.js",
+    "start": "node code/fastify-heroku/server.js",
+    "dev": "fastify start -w -l info -P app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "boom": "^7.3.0",
+    "fastify": "^3.0.0",
+    "fastify-autoload": "^3.3.1",
+    "fastify-cli": "^2.7.0",
+    "fastify-plugin": "^3.0.0",
+    "mongoose": "^6.0.5"
+  },
+  "devDependencies": {
+    "jest": "^27.2.5",
+    "tap": "^14.11.0"
   }
-  
+}

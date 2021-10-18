@@ -9,6 +9,6 @@ async function addClientServiceHandler(request, reply) {
   } catch (err) {
     throw boom.boomify(err)
   }
-};
+}
 
 module.exports = addClientServiceHandler;
