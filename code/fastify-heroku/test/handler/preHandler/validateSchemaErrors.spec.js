@@ -1,4 +1,4 @@
-const validateSchemaErrors = require('../../preHandler/validateSchemaErrors');
+const validateSchemaErrors = require('../../../preHandler/validateSchemaErrors');
 
 describe('validateSchemaErrors', () => {
     it('requisição validado sem erro', () => {
