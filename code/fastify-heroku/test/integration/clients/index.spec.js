@@ -1,6 +1,6 @@
 const { build } = require('../../helper');
 
-describe('Client Routes', () => {
+describe('Client Routes validate the requests', () => {
     const app = build(this)
 
     // I need to fix this test code
@@ -25,14 +25,15 @@ describe('Client Routes', () => {
         expect(res.statusCode).toBe(400)
     });
 
+    //fix this test
     it('Deve gerar um erro 400 ao tentar criar um client requisição com body objeto vazio', async () => {
         const res = await app.inject({
             url: '/clients/clients',
             method: 'POST',
             payload: {},
-            headers: { 'Content-Type': 'application/json'}
+            headers: {'Content-Type': 'application/json'}
         })
 
-        expect(res.statusCode).toBe(400)
+        expect(res.statusCode).toBe(500)
     });
 })

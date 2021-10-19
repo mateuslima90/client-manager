@@ -4,7 +4,7 @@ const bodyJsonSchema = {
     type: 'object',
     required: ['username', 'description', 'owner', 'team'],
     properties: {
-        username: { type: 'string' },
+        username: { type: 'string', minLength: 5, maxLength: 25 },
         description: { type: 'string' },
         owner: { type: 'string' },
         team: { type: 'string' }
