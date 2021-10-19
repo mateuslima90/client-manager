@@ -1,3 +1,5 @@
+const defaultResponsesSchema = require('./defaultResponseSchema')
+
 const bodyJsonSchema = {
     type: 'object',
     required: ['username', 'description', 'owner', 'team'],
@@ -10,49 +12,8 @@ const bodyJsonSchema = {
 };
 
 const addClientSchema = {
-    "tags": ["clients"],
-    "requestBody": bodyJsonSchema,
-    "description": "Create a specific client",
-    "responses": {
-        "201": {
-            "description": "A JSON array of clients",
-            "content": {
-                "application/json": {
-                    "schema": {
-                        "$ref": "#/components/schemas/Client"
-                    }
-                }
-            }
-        },
-        "400": {
-            "description": "Invalid Payload",
-            "content": {
-                "application/json": {
-                    "schema": {
-                        "$ref": "#/components/schemas/ApiResponse"
-                    }
-                }
-            }
-        },
-        "409": {
-            "description": "Client already exists",
-            "content": {
-                "application/json": {
-                    "schema": {
-                        "$ref": "#/components/schemas/ApiResponse"
-                    }
-                }
-            }
-        },
-        "500": {
-            "description": "Internal Server Error",
-            "content": {
-                "application/json": {
-                    "schema": {
-                        "$ref": "#/components/schemas/ApiResponse"
-                    }
-                }
-            }
-        }
-    }
+    description: 'Add Client schema successful Response',
+    tags: ['clients'],
+    body: bodyJsonSchema,
+    response: defaultResponsesSchema
 }
