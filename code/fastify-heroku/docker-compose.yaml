@@ -16,6 +16,15 @@ services:
       - sonarqube_extensions:/opt/sonarqube/extensions
       - sonarqube_logs:/opt/sonarqube/logs
       - sonarqube_temp:/opt/sonarqube/temp
+  redis:
+    restart: on-failure
+    image: 'bitnami/redis:latest'
+    networks:
+      - backend
+    ports:
+      - 6379:6379
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
 volumes:
   dbdata:
   sonarqube_data:
