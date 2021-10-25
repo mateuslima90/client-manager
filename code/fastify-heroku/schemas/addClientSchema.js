@@ -17,3 +17,5 @@ const addClientSchema = {
     body: bodyJsonSchema,
     response: defaultResponsesSchema
 }
+
+module.exports = addClientSchema

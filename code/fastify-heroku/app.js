@@ -11,11 +11,11 @@ module.exports = async function (fastify, opts) {
 
   fastify.register(require('fastify-rate-limit'), {
     global: true,
-    max: 2,
-    timeWindow: '1 minute',
+    max: 1000000,
+    timeWindow: '600 minute',
     skipOnError: true,
     //redis: redis
-    redis: new Redis({host: '172.24.0.2', port: 6379})
+    redis: new Redis({host: 'localhost', port: 6379})
     // allowList: ['127.0.0.1'],
     // allowList: ['192.168.0.10'],
   })  
