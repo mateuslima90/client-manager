@@ -50,7 +50,7 @@ describe('Client Routes validating the flow', () => {
             headers: { 'Content-Type': 'application/json'}  
         })
 
-        expect(res.statusCode).toBe(500)
+        expect(res.statusCode).toBe(400)
     });
 
     it('Deve buscar um client pelo ID com sucesso', async () => {
