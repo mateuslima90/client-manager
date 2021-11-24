@@ -53,7 +53,7 @@ module.exports = async function (fastify, opts) {
         attachValidation: true,
         handler: addClientServiceHandler,
         method: 'POST',
-        path: '/clients',
+        path: '',
         preHandler: [validateSchemaErrors],
         schema: addClientSchema
     });

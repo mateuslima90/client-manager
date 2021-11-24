@@ -5,20 +5,20 @@ const AutoLoad = require('fastify-autoload')
 
 module.exports = async function (fastify, opts) {
   // Place here your custom code!
-  const Redis = require('ioredis')
+  //const Redis = require('ioredis')
 
   // Configuring rate limit
 
-  fastify.register(require('fastify-rate-limit'), {
-    global: true,
-    max: 1000000,
-    timeWindow: '600 minute',
-    skipOnError: true,
-    //redis: redis
-    redis: new Redis({host: 'localhost', port: 6379})
-    // allowList: ['127.0.0.1'],
-    // allowList: ['192.168.0.10'],
-  })  
+  // fastify.register(require('fastify-rate-limit'), {
+  //   global: true,
+  //   max: 1000000,
+  //   timeWindow: '600 minute',
+  //   skipOnError: true,
+  //   //redis: redis
+  //   redis: new Redis({host: 'localhost', port: 6379})
+  //   // allowList: ['127.0.0.1'],
+  //   // allowList: ['192.168.0.10'],
+  // })  
   
   // Do not touch the following lines
 
