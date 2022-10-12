@@ -87,4 +87,6 @@ public class ClientsApiController implements ClientsApi {
         client.setTeam(inlineObject.getTeam());
         return ResponseEntity.status(HttpStatus.OK).body(client);
     }
+
+
 }
